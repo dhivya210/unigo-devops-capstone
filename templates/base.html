@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}UniGo{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a href="{{ url_for('home') }}" class="brand">
+
+            <div class="brand-icon">
+                U
+            </div>
+
+            <div class="brand-text">
+                <strong>UniGo</strong>
+                <span>Student Companion</span>
+            </div>
+
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                OVERVIEW
+            </p>
+
+            <a href="{{ url_for('home') }}"
+               class="sidebar-link {% if request.endpoint == 'home' %}active{% endif %}">
+
+                <span class="nav-icon">⌂</span>
+                <span>Home</span>
+
+            </a>
+
+
+            <a href="{{ url_for('journey') }}"
+               class="sidebar-link {% if request.endpoint == 'journey' %}active{% endif %}">
+
+                <span class="nav-icon">✦</span>
+                <span>My Journey</span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- USER -->
+        <div class="sidebar-footer">
+
+            <div class="student-profile">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Alex</strong>
+                    <span>International Student</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="page-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</div>
+
+
+<!-- MOBILE NAVIGATION -->
+<nav class="mobile-nav">
+
+    <a href="{{ url_for('home') }}"
+       class="{% if request.endpoint == 'home' %}active{% endif %}">
+
+        <span>⌂</span>
+        <small>Home</small>
+
+    </a>
+
+
+    <a href="{{ url_for('journey') }}"
+       class="{% if request.endpoint == 'journey' %}active{% endif %}">
+
+        <span>✦</span>
+        <small>Journey</small>
+
+    </a>
+
+</nav>
+
+</body>
+</html>
