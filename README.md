@@ -198,7 +198,7 @@ unigo-devops-capstone/
 ├── requirements.txt
 └── README.md
 ```
-
+CI/CD pipeline automated using Jenkins.
 ## Author
 
 **Dhivyadharshini Kathiravan Sathyabama**
